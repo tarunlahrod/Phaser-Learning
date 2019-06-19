@@ -11,8 +11,10 @@ class Example1 extends Phaser.Scene {
 		// Text
 		this.text = this.add.text(10,0, "Use ASDF to move around.", {font: "14px Impact"});
 		this.text = this.add.text(10,15, "Press P to check gravity.", {font: "14px Impact"});
-		this.text = this.add.text(10,30, "Press 2 to switch to Example2.", {font: "14px Impact"});
-		this.text = this.add.text(10,45, "Click anywhere to move the image.", {font: "14px Impact"});
+		this.text = this.add.text(10,30, "Click anywhere to move the image.", {font: "14px Impact"});
+		this.text = this.add.text(500,0, "Press 2 to switch to Example2.", {font: "14px Impact"});
+		this.text = this.add.text(500,15, "Press 3 to switch to Example3.", {font: "14px Impact"});
+
 
 		// Image
 		this.image = this.add.image(400, 300, 'Saitama');
@@ -49,13 +51,20 @@ class Example1 extends Phaser.Scene {
 			physicsImage.setVelocity(Phaser.Math.RND.integerInRange(-100, 100), -300);
 		}, this);
 
+		
+
 		// keyup: On any key pressed
 		this.input.keyboard.on('keyup', function(e){
 			// Now we'll switch between different scenes on key 2 or key 3 pressed.
 			if(e.key == "2"){
 				this.scene.start("Example2");
 			}
+
+			if(e.key == "3"){
+				this.scene.start("Example3");
+			}
 		}, this);
+
 	}
 
 	update(delta){
