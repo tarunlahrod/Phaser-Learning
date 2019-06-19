@@ -41,10 +41,12 @@ class Example3 extends Phaser.Scene{
 		this.input.keyboard.on('keyup', function(e){
 			// Now we'll switch between different scenes on key 2 or key 3 pressed.
 			if(e.key == "1"){
+				this.soundFX.stop();
 				this.scene.start("Example1");
 			}
 
 			if(e.key == "2"){
+				this.soundFX.stop();
 				this.scene.start("Example2");
 			}
 		}, this);
